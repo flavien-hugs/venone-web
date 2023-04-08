@@ -15,7 +15,8 @@ pillow = "*"
 flask-flatpages = "*"
 python-dotenv = "*"
 gunicorn = "*"
-flask-htmlmin = "*"
+flask-minify = "*"
+httpx = "*"
 
 [dev-packages]
 pre-commit = "*"
