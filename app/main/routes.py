@@ -31,19 +31,21 @@ def contact_page():
 @main.get("/proprietes-disponibles/")
 def houses_page():
     page_title = "Nos propriétés disponible"
+    return render_template("page/house_list.html", page_title=page_title)
 
+@main.route('/api/houses/')
+def api():
     app = current_app._get_current_object()
     req_url = app.config.get('API_URL')
 
     try:
         with httpx.Client() as client:
-            houses_response = client.get(req_url).json()
+            houses_response = client.get(req_url)
+            print(houses_response)
+            return houses_response.text
     except (httpx.RequestError, ValueError) as error:
         logger.debug(f"Error fetching houses data {error}")
         return "Error fetching houses data"
-
-    return render_template("page/house_list.html", houses=houses_response, page_title=page_title)
-
 
 @main.get("/<path:path>/")
 def page(path):

@@ -1,60 +1,78 @@
 {% extends "_base.html" %}
 
 {% block body_content %}
-	<div id="housesApp" >
-		<section class="bg-light p-4">
-		    <div class="container px-0">
-		        <div class="row mb-4 align-items-center">
-		            <div class="col-12 bg-light">
-		                <div class="row align-items-center justify-content-center">
-		                    <div class="col-md-9 px-md-5 text-center position-relative order-md-2 mb-5 mb-md-0">
-		                        <h1 class="fs-3 mb-3">La <span class="p-2 fw-bold bg-primary text-white">maison de vos rêves</span> n'est qu'à quelques clics.</h1>
-		                        <p class="mb-5">Avec une grande variété de propriétés disponibles, vous pouvez explorer les options qui correspondent à vos critères de recherche et trouver votre prochain chez-vous en quelques clics seulement.</p>
+	<div id="housesApp">
+		<section v-if="houses.length == 0" class="container px-0">
+			<div class="row vh-100 d-md-flex align-items-md-center justify-content-md-center">
+				<div class="col-lg-5">
+					<div class="card card-body shadow-none bg-transparent border-0">
+			            <div class="text-center py-2">
+			                <img loading="lazy" class="img-account-profile rounded-circle mb-4" src="{{ url_for('static', filename='img/element/08.svg' )}}" alt="">
 
-		                        <form class="row gx-2 bg-body rounded p-3 needs-validation" novalidate>
-		                        	<div class="col-sm-6 col-xl-4 mb-3 mb-xl-0">
-		                        		<select class="form-select form-select-lg form-control" id="category" aria-label="Select a category" required>
-		                        			<option value="">Type de logement</option>
-		                        			<option>Villa</option>
-		                        			<option>Buream</option>
-		                        			<option>Studio</option>
-		                        			<option>Appartement</option>
-		                        		</select>
-		                        		<div class="invalid-feedback">
-		                        			Please select a property type.
-		                        		</div>
-		                        	</div>
-
-		                        	<div class="col-sm-6 col-xl-5 mb-3 mb-xl-0">
-		                        		<select class="form-select form-select-lg form-control" id="level" aria-label="Select a level" required>
-		                        			<option value="">Loyer</option>
-		                        			<option>10 000 - 30 000</option>
-		                        			<option>35 000 - 70 000</option>
-		                        			<option>75 000 - 100 000</option>
-		                        			<option>+ 105 000</option>
-		                        		</select>
-		                        		<div class="invalid-feedback">
-		                        			Please select a price.
-		                        		</div>
-		                        	</div>
-
-		                            <div class="col-sm-6 col-xl-3 d-grid">
-						                <button type="submit" class="btn btn-md btn-primary mb-0 rounded text-capitalize">
-		                            		<i class="fa fa-search me-2"></i>rechercher
-		                            	</button>
-						            </div>
-		                        </form>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
+			                <p class="d-flex justify-content-center text-muted mb-4">
+			                   Il n'y aucune propriété disponible en ce moment.
+			                </p>
+			            </div>
+			        </div>
+			    </div>
+			</div>
 		</section>
 
-		<section class="pt-5 pb-0 pb-lg-5">
-			<div class="container px-0">
-				<div class="row g-3">
-					<house-list :houses="houses"></house-list>
+        <section v-if="houses.length > 0">
+			<div class="bg-light p-4">
+			    <div class="container px-0">
+			        <div class="row mb-4 align-items-center">
+			            <div class="col-12 bg-light">
+			                <div class="row align-items-center justify-content-center">
+			                    <div class="col-md-9 px-md-5 text-center position-relative order-md-2 mb-5 mb-md-0">
+			                        <h1 class="fs-3 mb-3">La <span class="p-2 fw-bold bg-primary text-white">maison de vos rêves</span> n'est qu'à quelques clics.</h1>
+			                        <p class="mb-5">Avec une grande variété de propriétés disponibles, vous pouvez explorer les options qui correspondent à vos critères de recherche et trouver votre prochain chez-vous en quelques clics seulement.</p>
+
+			                        <form class="row gx-2 bg-body rounded p-3 needs-validation" novalidate>
+			                        	<div class="col-sm-6 col-xl-4 mb-3 mb-xl-0">
+			                        		<select class="form-select form-select-lg form-control" id="category" aria-label="Select a category" required>
+			                        			<option value="">Type de logement</option>
+			                        			<option>Villa</option>
+			                        			<option>Buream</option>
+			                        			<option>Studio</option>
+			                        			<option>Appartement</option>
+			                        		</select>
+			                        		<div class="invalid-feedback">
+			                        			Please select a property type.
+			                        		</div>
+			                        	</div>
+
+			                        	<div class="col-sm-6 col-xl-5 mb-3 mb-xl-0">
+			                        		<select class="form-select form-select-lg form-control" id="level" aria-label="Select a level" required>
+			                        			<option value="">Loyer</option>
+			                        			<option>10 000 - 30 000</option>
+			                        			<option>35 000 - 70 000</option>
+			                        			<option>75 000 - 100 000</option>
+			                        			<option>+ 105 000</option>
+			                        		</select>
+			                        		<div class="invalid-feedback">
+			                        			Please select a price.
+			                        		</div>
+			                        	</div>
+
+			                            <div class="col-sm-6 col-xl-3 d-grid">
+							                <button type="submit" class="btn btn-md btn-primary mb-0 rounded text-capitalize">
+			                            		<i class="fa fa-search me-2"></i>rechercher
+			                            	</button>
+							            </div>
+			                        </form>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+
+			<div class="pt-5 pb-0 pb-lg-5">
+				<div class="container px-0">
+					<div class="row g-3">
+						<house-list :houses="houses"></house-list>
+					</div>
 				</div>
 			</div>
 		</section>

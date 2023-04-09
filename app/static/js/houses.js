@@ -13,8 +13,7 @@ var app = Vue.createApp({
     methods: {
     	async getHouses() {
         	try {
-        		const houseURL = `https://g.venone.app/api/available-houses/`;
-
+        		const houseURL = `/api/houses/`;
         		const response = await fetch(houseURL, {
         			method: "GET",
         			headers: {
