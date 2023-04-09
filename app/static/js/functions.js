@@ -1,10 +1,3 @@
-/**
-* Eduport- LMS, Education and Course Theme
-*
-* @author Webestica (https://www.webestica.com/)
-* @version 1.2.0
-**/
-
 "use strict";
 !function () {
 
