@@ -1,17 +1,14 @@
 import os
-import logging as lg
 
-from app import create_app, db
+from app import db
+from app import create_app
+from flask_migrate import Migrate
 
-from dotenv import load_dotenv
-from flask_migrate import Migrate, upgrade
+from dotenv import dotenv_values
 
+env = dotenv_values(".flaskenv")
 
-dotenv_path = os.path.join(os.path.dirname(__file__), ".flaskenv")
-if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path)
-
-app = create_app(os.getenv("FLASK_CONFIG") or "dev")
+app = create_app(env.get("FLASK_CONFIG"))
 migrate = Migrate(app, db)
 
 
