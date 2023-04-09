@@ -1,7 +1,10 @@
-from os import urandom, environ, path
+import os
 
+from dotenv import dotenv_values
 
-BASE_DIR = path.abspath(path.dirname(__file__))
+env = dotenv_values(".flaskenv")
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
@@ -9,7 +12,7 @@ class Config:
     DEBUG = False
     DEVELOPMENT = False
 
-    SECRET_KEY = environ.get("SECRET_KEY", urandom(24))
+    SECRET_KEY = env.get("SECRET_KEY")
     SITE_NAME = "Venone"
     EMAIL_ADDRESS = "support@venone.app"
     EMAIL_ADDRESS_CONTACT = "contact@venone.app"
@@ -19,9 +22,10 @@ class Config:
     FLATPAGES_EXTENSION = ".md"
     FLATPAGES_MARKDOWN_EXTENSIONS = ["codehilite"]
     SLOW_DB_QUERY_TIME = 0.5
-    WEBSITE_BUILDER = "https://www.venone.app"
+    WEBSITE_BUILDER = env.get('WEBSITE_URL')
 
-    CRM_BUILDER = "https://gestion.venone.app"
+    API_URL = env.get('API_URL')
+    CRM_BUILDER = env.get('CRM_BASE_URL')
 
     @staticmethod
     def init_app(app):
@@ -31,13 +35,13 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     DEVELOPMENT = True
-    SQLALCHEMY_DATABASE_URI = environ.get(
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
         "DEV_DATABASE_URL"
-    ) or "sqlite:///" + path.join(BASE_DIR, "dev.sqlite3")
+    ) or "sqlite:///" + os.path.join(BASE_DIR, "dev.sqlite3")
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = environ.get("DATABASE_URL") or "sqlite:///" + path.join(
+    SQLALCHEMY_DATABASE_URI = env.get("DATABASE_URL") or "sqlite:///" + os.path.join(
         BASE_DIR, "prod.sqlite3"
     )
 
