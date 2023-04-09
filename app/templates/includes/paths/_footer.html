@@ -3,29 +3,29 @@
         <div class="row g-4 justify-content-between">
             <div class="col-md-6 col-lg-4">
                 <a class="me-0" href="/">
-                    <img loading="lazy" height="106" class="light-mode-item mx-auto h-40px" src="{{ url_for('static', filename='img/logo/logo-light.png') }}" alt="logo-venone">
+                    <img loading="lazy" class="light-mode-item mx-auto h-70px" src="{{ url_for('static', filename='img/logo/logo-light.png') }}" alt="logo-venone">
                 </a>
 
                 <p class="my-3 text-white">
                 {{ config.SITE_NAME }} est un logiciel de gestion locative et de vente de biens immobiliers et fonciers.</p>
 
                 <div class="d-sm-flex align-items-center mt-2 mt-sm-4">
-                    <h5 class="mb-0 text-white">Suivez-nous sur: </h5>
+                    <h5 class="mb-0 text-white">Suivez-nous sur : </h5>
 
                     <li class="list-inline-item">
-                        <a class="fs-5 me-1 text-facebook" href="#">
+                        <a class="fs-5 text-white" href="#">
                             <i class="fab fa-fw fa-facebook-f"></i>
                         </a>
                     </li>
 
                     <li class="list-inline-item">
-                        <a class="fs-5 me-1 text-pinterest" href="#">
+                        <a class="fs-5 text-white" href="#">
                             <i class="fab fa-fw fa-whatsapp"></i>
                         </a>
                     </li>
 
                     <li class="list-inline-item">
-                        <a class="fs-5 me-1 text-instagram" href="#">
+                        <a class="fs-5 text-white" href="#">
                             <i class="fab fa-fw  fa-instagram"></i>
                         </a>
                     </li>
@@ -38,9 +38,8 @@
                         <h5 class="mb-2 mb-2 mb-md-4 text-white">Fonctionnalités</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link" href="#">Gestion des factures</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Gestion des unités locatives</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Reporting et Analyses</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Plus de fonctionnalités</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Gestion des biens immobiliers</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Statistiques et Analyses</a></li>
                         </ul>
                     </div>
 
@@ -50,7 +49,6 @@
                             <li class="nav-item"><a class="nav-link pt-0" href="/faq/">FAQ</a></li>
                             <li class="nav-item"><a class="nav-link pt-0" href="{{ url_for('main.contact_page')}}">Contactez-nous</a></li>
                             <li class="nav-item"><a class="nav-link pt-0" href="#">Notre histoire</a></li>
-                            <li class="nav-item"><a class="nav-link pt-0" href="#">Notre réseau</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Qui sommes-nous ?</a></li>
                         </ul>
                     </div>
@@ -65,10 +63,10 @@
 
                         <div class="row g-2 mt-2">
                             <div class="col-6 col-sm-4 col-md-3 col-lg-6">
-                                <a href="#"><img loading="lazy" src="{{ url_for('static', filename='img/client/google-play.svg') }}" alt="google-play"></a>
+                                <a href="#"><img loading="lazy" src="{{ url_for('static', filename='img/client/google-play.svg') }}" alt="venone-google-play-app"></a>
                             </div>
                             <div class="col-6 col-sm-4 col-md-3 col-lg-6">
-                                <a href="#"><img loading="lazy" src="{{ url_for('static', filename='img/client/app-store.svg') }}" alt="google-play"></a>
+                                <a href="#"><img loading="lazy" src="{{ url_for('static', filename='img/client/app-store.svg') }}" alt="venone-app-play"></a>
                             </div>
                         </div>
                     </div>
@@ -85,12 +83,6 @@
                         &copy;  <a href="/" class="text-reset">{{ moment().format('YYYY') }} {{ config.SITE_NAME }}</a>, filiale CGIC GROUP. Tous droits réservés.
                     </div>
                     <div class="mt-3 mt-md-0">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item">
-                                <a class="nav-link" href="#">
-                                    Mentions Légales
-                                </a>
-                            </li>
                             <li class="list-inline-item">
                                 <a class="nav-link" href="/cgu/">
                                     Politique de confidentialité

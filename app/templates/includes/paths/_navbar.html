@@ -1,7 +1,7 @@
 <header class="navbar-light navbar-sticky">
-    <nav class="navbar navbar-expand-xl">
-        <div class="container">
-            <a class="navbar-brand me-0" href="/">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container px-0">
+            <a class="navbar-brand" href="/">
                 <img loading="lazy" class="light-mode-item navbar-brand-item" src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="logo-venone" height="106">
             </a>
 
@@ -13,16 +13,19 @@
                 </span>
             </button>
 
-            <div class="navbar-collapse collapse" id="navbarCollapse">
+            <div class="navbar-collapse  w-100 collapse" id="navbarCollapse">
                 <ul class="navbar-nav navbar-nav-scroll mx-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fonctionnalités</a>
                         <ul class="dropdown-menu" aria-labelledby="demoMenu">
                             <li><a class="dropdown-item" href="#">Gestion des factures</a></li>
-                            <li><a class="dropdown-item" href="#">Gestion des unités locatives</a></li>
-                            <li><a class="dropdown-item" href="#">Reporting et Analyses</a></li>
-                            <li><a class="dropdown-item" href="#">Plus de fonctionnalités</a></li>
+                            <li><a class="dropdown-item" href="#">Gestion des biens immobiliers</a></li>
+                            <li><a class="dropdown-item" href="#">Statistiques et Analyses</a></li>
                         </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.houses_page') }}">Propriétés disponibles</a>
                     </li>
 
                     <li class="nav-item">
