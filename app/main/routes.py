@@ -1,40 +1,59 @@
 import os
-from urllib.parse import urlparse
+import json
+import logging
+from flask import current_app
+from flask import make_response
+from flask import render_template
+from flask import request
+from flask import Response
+from flask import send_from_directory
 
-from flask import (
-    render_template,
-    request,
-    current_app,
-    send_from_directory,
-    make_response,
-    Response,
-)
-
+import httpx
 from . import main
-from .. import pages
+from app import pages
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 
-@main.route("/", methods=["GET"])
+@main.get("/")
 def home_page():
     page_title = "Acceuil"
-    return render_template("index.html", **locals())
+    return render_template("index.html", page_title=page_title)
 
 
-@main.route("/contact/", methods=["GET"])
+@main.get("/contact/")
 def contact_page():
     page_title = "Contatez-nous"
-    return render_template("page/contact.html", **locals())
+    return render_template("page/contact.html", page_title=page_title)
 
 
-@main.route("/<path:path>/", methods=["GET"])
+@main.get("/proprietes-disponibles/")
+def houses_page():
+    page_title = "Nos propriétés disponible"
+
+    app = current_app._get_current_object()
+    req_url = app.config.get('API_URL')
+
+    try:
+        with httpx.Client() as client:
+            houses_response = client.get(req_url).json()
+    except (httpx.RequestError, ValueError) as error:
+        logger.debug(f"Error fetching houses data {error}")
+        return "Error fetching houses data"
+
+    return render_template("page/house_list.html", houses=houses_response, page_title=page_title)
+
+
+@main.get("/<path:path>/")
 def page(path):
     page = pages.get_or_404(path)
-    template = page.meta.get('template', 'page.html')
+    page.meta.get("template", "page.html")
     return render_template("page/page.html", page=page)
 
 
-@main.route("/sitemap/")
-@main.route("/sitemap.xml/")
+@main.get("/sitemap/")
+@main.get("/sitemap.xml/")
 def sitemap():
 
     host_components = urlparse(request.host_url)
@@ -65,7 +84,7 @@ def sitemap():
     return response
 
 
-@main.route("/robots.txt/", methods=["GET"])
+@main.get("/robots.txt/")
 def noindex():
     def Disallow(string):
         return f"Disallow: {string}"
@@ -79,7 +98,7 @@ def noindex():
     return r
 
 
-@main.route("/favicon.png", methods=["GET"])
+@main.get("/favicon.png")
 def favicon():
     return send_from_directory(
         os.path.join(current_app.root_path, "static"), "img/logo/favicon.png"
