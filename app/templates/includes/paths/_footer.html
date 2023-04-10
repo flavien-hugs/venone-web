@@ -7,9 +7,9 @@
                 </a>
 
                 <p class="my-3 text-white">
-                {{ config.SITE_NAME }} est un logiciel de gestion locative et de vente de biens immobiliers et fonciers.</p>
+                {{ config.SITE_NAME }} est un logiciel de gestion locative et de vente de biens immobiliers.</p>
 
-                <h5 class="mb-0 text-white">Suivez-nous sur</h5>
+                <h5 class="mb-0 text-white">Nous contacter</h5>
                 
                 <ul class="list-inline mb-0 my-3">
                     <li class="list-inline-item">
@@ -46,10 +46,9 @@
                     <div class="col-4 col-sm-4">
                         <h5 class="mb-2 mb-2 mb-md-4 text-white">{{ config.SITE_NAME }}</h5>
                         <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link pt-0" href="/faq/">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link pt-0" href="/faq/">FAQs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/a-propos/">À Propos</a></li>
                             <li class="nav-item"><a class="nav-link pt-0" href="{{ url_for('main.contact_page')}}">Contactez-nous</a></li>
-                            <li class="nav-item"><a class="nav-link pt-0" href="#">Notre histoire</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Qui sommes-nous ?</a></li>
                         </ul>
                     </div>
 
@@ -80,7 +79,7 @@
             <div class="col-12">
                 <div class="d-md-flex justify-content-between align-items-center pt-2 pb-4 text-center">
                     <div class="text-primary-hover">
-                        &copy;  <a href="/" class="text-reset">{{ moment().format('YYYY') }} {{ config.SITE_NAME }}</a>, filiale CGIC GROUP. Tous droits réservés.
+                        &copy;  <a href="/" class="text-reset">{{ moment().format('YYYY') }} {{ config.SITE_NAME }}</a>, filiale CGIC GROUP.
                     </div>
                     <div class="mt-3 mt-md-0">
                         <ul>
