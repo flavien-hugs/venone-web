@@ -2,7 +2,15 @@
 
 {% block body_content %}
 
-	{% include "includes/paths/_breadcrumb.html" with context %}
+	<section class="bg-light p-5">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-8 text-center mx-auto">
+    				<h1 class="fs-2 fw-bold text-primary">{{ page_title | e }}</h1>
+    			</div>
+    		</div>
+    	</div>
+    </section>
 
 	<section class="pt-5 pb-0 pb-lg-5">
 	    <div class="container">
@@ -10,7 +18,7 @@
 	            <div class="col-lg-12">
 	               	<h3 class="mb-2">Pour nous contacter, rien de plus simple, vous pouvez:</h3>
 	               	<p>
-	               		Pour nous contacter, rien de plus simple, vous pouvez <a class="fw-bold text-danger" target="_blank" href="#!">nous envoyer un ticket</a>, <a class="fw-bold text-danger" target="_blank" href="mailto:{{ config.EMAIL_ADDRESS_CONTACT }}">un e-mail</a> ou <a target="_blank" class="fw-bold text-danger" href="https://wa.me/+2250151571396">un message WhatsApp</a>. L'un de nos spécialistes produits vous répondra rapidement et se fera un plaisir de vous aider.
+	               		Pour nous contacter, rien de plus simple, vous pouvez <a class="fw-bold text-primary" target="_blank" href="#!"><u>nous envoyer un ticket</u></a>, <a class="fw-bold text-primary" target="_blank" href="mailto:{{ config.EMAIL_ADDRESS_CONTACT }}"><u>un e-mail</u></a> ou <a target="_blank" class="fw-bold text-primary" href="https://wa.me/{{ config.WHATSAPP_NUMBER }}"><u>un message Whatsapp</u></a>. L'un de nos spécialistes produits vous répondra rapidement et se fera un plaisir de vous aider.
 	               	</p>
 	            </div>
 	        </div>
@@ -21,7 +29,7 @@
                         <h2 class="display-5 text-info"><i class="bi bi-headset"></i></h2>
                         <h3>Appel WhatsApp</h3>
                         <p>Nous pouvons échanger par appel téléphonique.</p>
-                        <a href="https://wa.me/+2250151571396" class="btn btn-dark mb-0">Appelez-nous</a>
+                        <a href="https://wa.me/{{ config.WHATSAPP_NUMBER }}" class="btn btn-dark mb-0">Appelez-nous</a>
                     </div>
                 </div>
 
@@ -47,7 +55,7 @@
 	            <div class="col-lg-12">
 	               	<h3 class="mb-2">Il y a d'autres ressources disponibles qui peuvent vous aider</h3>
 	               	<p>
-	               		Nous vous offrons un grand nombre de ressources qui sont constamment mises à jour pour votre utilisation. N'hésitez pas à utiliser notre <a class="text-danger" href="#!">centre d'aide et de documentation</a> ainsi que notre foire aux questions <a class="text-danger" href="#!">(FAQ)</a> pour trouver de l'aide.
+	               		Nous vous offrons un grand nombre de ressources qui sont constamment mises à jour pour votre utilisation. N'hésitez pas à utiliser notre <a class="text-danger" href="#!">centre d'aide et de documentation</a> ainsi que notre <a class="text-danger" href="/faq/"><u>foire aux questions (FAQ)</u></a> pour trouver de l'aide.
 	               	</p>
 	            </div>
 	        </div>
