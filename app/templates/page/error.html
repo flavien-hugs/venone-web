@@ -5,10 +5,10 @@
 {% endblock navbar_content %}
 
 {% block body_content %}
-     <section class="container text-center py-5">
-         <div class="row align-items-center justify-content-center">
-             <div class="col-8">
-                <img loading="lazy" src="{{ url_for('static', filename='img/element/error.svg') }}" class="h-100px h-md-200px mb-4" alt="{{ page_title }}">
+     <section class="container text-center p-4">
+         <div class="row d-md-flex align-items-center justify-content-center min-vh-100">
+             <div class="col-lg-8">
+                <img loading="lazy" src="{{ url_for('static', filename='img/element/error.svg') }}" class="img-fluid h-100px h-md-200px p-4" alt="{{ page_title }}">
                 <h1 class="display-1 text-danger mb-0">{{ error.code }}</h1>
                 <h2>{{ page_title }}</h2>
                 <p class="mb-4">{{ error.description | safe }}</p>
