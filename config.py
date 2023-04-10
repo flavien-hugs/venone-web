@@ -22,10 +22,10 @@ class Config:
     FLATPAGES_EXTENSION = ".md"
     FLATPAGES_MARKDOWN_EXTENSIONS = ["codehilite"]
     SLOW_DB_QUERY_TIME = 0.5
-    WEBSITE_BUILDER = env.get('WEBSITE_URL')
+    WEBSITE_BUILDER = env.get("WEBSITE_URL")
 
-    API_URL = env.get('API_URL')
-    CRM_BUILDER = env.get('CRM_BASE_URL')
+    API_URL = env.get("API_URL")
+    CRM_BUILDER = env.get("CRM_BASE_URL")
 
     @staticmethod
     def init_app(app):
