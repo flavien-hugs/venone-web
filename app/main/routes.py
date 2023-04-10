@@ -53,8 +53,8 @@ def api():
 @main.get("/<path:path>/")
 def page(path):
     page = pages.get_or_404(path)
-    page.meta.get("template", "page.html")
-    return render_template("page/page.html", page=page)
+    template = page.meta.get("template", "page/page.html")
+    return render_template(template, page=page)
 
 
 @main.get("/sitemap/")
