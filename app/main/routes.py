@@ -1,6 +1,9 @@
-import os
-import json
 import logging
+import os
+from urllib.parse import urlparse
+
+import httpx
+from app import pages
 from flask import current_app
 from flask import make_response
 from flask import render_template
@@ -8,9 +11,7 @@ from flask import request
 from flask import Response
 from flask import send_from_directory
 
-import httpx
 from . import main
-from app import pages
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -33,10 +34,11 @@ def houses_page():
     page_title = "Nos propriétés disponible"
     return render_template("page/house_list.html", page_title=page_title)
 
-@main.route('/api/houses/')
+
+@main.route("/api/houses/")
 def api():
     app = current_app._get_current_object()
-    req_url = app.config.get('API_URL')
+    req_url = app.config.get("API_URL")
 
     try:
         with httpx.Client() as client:
@@ -46,6 +48,7 @@ def api():
     except (httpx.RequestError, ValueError) as error:
         logger.debug(f"Error fetching houses data {error}")
         return "Error fetching houses data"
+
 
 @main.get("/<path:path>/")
 def page(path):
