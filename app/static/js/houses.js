@@ -61,7 +61,7 @@ app.component('house-list', {
 									<div class="avatar">
 										<img loading="lazy" class="avatar-img rounded-circle" src="{{ url_for('static', filename='img/logo/favicon.png') }}" alt="avatar">
 									</div>
-								</div>               
+								</div>
 							</div>
 						</div>
 					</div>
