@@ -9,16 +9,14 @@
 
 {% block body_content %}
 
-    {% set page_title = page.title %}
+    {% set page_title = page.subtitle %}
 
     {% include "includes/paths/_breadcrumb.html" with context %}
 
     <section class="py-3">
         <div class="container">
             <div class="row g-4 g-md-5">
-                <div class="col-lg-12">
-                    <p class="mb-4">{{ page.html|safe }}</p>
-                </div>
+                {{ page.html|safe }}
             </div>
         </div>
     </section>
