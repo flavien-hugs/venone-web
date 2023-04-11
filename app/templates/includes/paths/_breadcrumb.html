@@ -1,48 +1,44 @@
-{% if request.path == '/faq/' %}
+{% if request.path == '/faq/' or request.path == '/terms/' %}
     <section class="bg-light p-5">
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-8 text-center mx-auto">
     				<h1 class="fs-2 fw-bold text-primary mb-2">{{ page_title | e }}</h1>
     			</div>
+                {% if request.path == '/faq/' %}
+                    <div class="col-12 mx-auto text-center">
+                        <div class="row g-4 text-center">
+                            <p>Pour trouver rapidement l'aide dont vous avez besoin, sélectionnez une catégorie.</p>
 
-                <div class="col-12 mx-auto text-center">
-                    <div class="row g-4 text-center">
-                        <p>Pour trouver rapidement l'aide dont vous avez besoin, sélectionnez une catégorie.</p>
-
-                        <div class="col-sm-4 col-md-4">
-                            <div class="card card-body card-border-hover p-0">
-                                <a href="#" class="p-3">
-                                    <h2><i class="fas fa-exclamation-circle transition-base"></i></h2>
-                                    <h6 class="mb-0">Guide général</h6>
-                                </a>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="card card-body card-border-hover p-0">
+                                    <a href="#" class="p-3">
+                                        <h2><i class="fas fa-exclamation-circle transition-base"></i></h2>
+                                        <h6 class="mb-0">Guide général</h6>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-4 col-md-4">
-                            <div class="card card-body card-border-hover p-0">
-                                <a href="#" class="p-3">
-                                    <h2><i class="fas fa-street-view transition-base"></i></h2>
-                                    <h6 class="mb-0">Guide d'utilisateur</h6>
-                                </a>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="card card-body card-border-hover p-0">
+                                    <a href="#" class="p-3">
+                                        <h2><i class="fas fa-street-view transition-base"></i></h2>
+                                        <h6 class="mb-0">Guide d'utilisateur</h6>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-4 col-md-4">
-                            <div class="card card-body card-border-hover p-0">
-                                <a href="#" class="p-3">
-                                    <h2><i class="fas fa-hands-helping transition-base"></i></h2>
-                                    <h6 class="mb-0">Assistance</h6>
-                                </a>
+                            <div class="col-sm-4 col-md-4">
+                                <div class="card card-body card-border-hover p-0">
+                                    <a href="#" class="p-3">
+                                        <h2><i class="fas fa-hands-helping transition-base"></i></h2>
+                                        <h6 class="mb-0">Assistance</h6>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-12 mt-6">
-                   <img loading="lazy" src="{{ url_for('static', filename='img/element/help-center.svg') }}" class="w-100" alt="help-center">
-               </div>
-    			
+                {% endif %}
     		</div>
     	</div>
     </section>
