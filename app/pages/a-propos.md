@@ -8,10 +8,10 @@ subtitle: À propos de Venone
     			<span class="position-relative z-index-9">À propos de Venone</span>
     		</h1>
     		<p class="mt-4 mb-0">
-    			Notre application web de transactions immobilières est un outil puissant qui vous permet de gérer tous les aspects de votre propriété dans un seul endroit facile d'accès. Que vous soyez un propriétaire unique ou que vous gériez une grande entreprise immobilière, notre application vous offre les fonctionnalités dont vous aviez besoin pour simplifier vos tâches quotidiennes.
+    			Notre application web de transactions immobilières est un outil puissant qui vous permet d'assurer votre gestion locative dans tous ces aspects en un seul endroit facile d'accès. Que vous soyez un propriétaire d'un bien unique ou que vous gériez une grande entreprise immobilière, notre application vous offre les fonctionnalités nécessaires pour simplifier vos tâches quotidiennes.
     		</p>
     		<p class="mt-4 mb-0">
-    			Vous pouvez suivre les paiements de loyer, les contrats de location, les réparations nécessaires, les dépenses et les revenus tout en restant en contact avec les locataires et les fournisseurs. Notre application vous permet d’économiser du temps, de réduire les coûts et de maximiser les profits, en toute simplicité.
+    			Vous pouvez gérer et suivre les paiements de loyers, les contrats de location, les réparations nécessaires, les dépenses et les revenus tout en restant en contact avec les locataires et les fournisseurs. Notre application vous permet d’économiser du temps, de réduire les coûts de gestion et de maximiser les profits, en toute simplicité.
     		</p>
     	</div>
     	<div class="col-lg-7 col-xxl-6 my-5 mt-lg-0">
@@ -48,7 +48,7 @@ subtitle: À propos de Venone
                 <p>
                     Venone fournit une solution utile qui vous permet d’économiser du temps en automatisant les tâches administratives fastidieuses associées à la gestion de vos propriétés.
                 </p>
-                <p class="mb-0">Vous pouvez économiser de l'argent sur les dépenses de personnel supplémentaires et consacrer votre temps sur la croissance de votre entreprise.</p>
+                <p class="mb-0">Vous pouvez économiser de l'argent sur les dépenses de personnel supplémentaires et consacrer votre temps sur la croissance de vos entreprises et investissements.</p>
             </div>
         </div>
         <div class="col-sm-6 col-lg-4">
@@ -57,8 +57,8 @@ subtitle: À propos de Venone
                     <svg role="img" xmlns="http://www.w3.org/2000/svg" width="56px" height="56px" viewBox="0 0 24 24" aria-labelledby="gridLargeIconTitle" stroke="#2215ef" stroke-width="1.2857142857142858" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#2215ef"> <title id="gridLargeIconTitle">Large Grid</title> <rect width="7" height="7" x="3" y="3"/> <rect width="7" height="7" x="14" y="3"/> <rect width="7" height="7" x="3" y="14"/> <rect width="7" height="7" x="14" y="14"/> </svg>
                 </figure>
                 <h1 class="fs-6 mb-2">Gestion de tous les aspects de l'immobilier</h1>
-                <p>Avec Venone, vous avez accès à une solution complète de gestion immobilière qui gère tous les aspects de la gestion immobilière , de la location à la comptabilité en passant par la maintenance et le reporting.</p>
-                <p class="mb-0">Vous pouvez suivre tous les aspects de votre propriété à partir d'une seule plateforme, ce qui vous permet de gagner du temps et d'améliorer l' efficacité de votre activité immobilière.</p>
+                <p>Avec Venone, vous avez accès à une solution complète de gestion immobilière qui fédère tous les aspects de la gestion immobilière, de la location à la comptabilité en passant par la maintenance et le reporting.</p>
+                <p class="mb-0">Vous pouvez suivre tous les aspects de votre propriété à partir d'une seule plateforme, ce qui vous permet de gagner du temps et d'améliorer l' efficacité de vos activité immobilières.</p>
             </div>
         </div>
         <div class="col-sm-6 col-lg-4">
