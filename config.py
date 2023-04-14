@@ -10,6 +10,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 class Config:
 
     DEBUG = False
+    TESTING = False
     DEVELOPMENT = False
 
     SECRET_KEY = env.get("SECRET_KEY")
@@ -36,6 +37,11 @@ class Config:
         pass
 
 
+class TestingConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+
+
 class DevelopmentConfig(Config):
     DEBUG = True
     DEVELOPMENT = True
@@ -54,7 +60,4 @@ class ProductionConfig(Config):
         Config.init_app(app)
 
 
-config = {
-    "prod": ProductionConfig,
-    "dev": DevelopmentConfig,
-}
+config = {"prod": ProductionConfig, "dev": DevelopmentConfig, "test": TestingConfig}
