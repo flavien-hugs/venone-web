@@ -17,8 +17,8 @@ class Config:
     SITE_NAME = "Venone"
     EMAIL_ADDRESS = "support@venone.app"
     EMAIL_ADDRESS_CONTACT = "contact@venone.app"
-    PHONE_NUMBER = "(+225) 01 0137 6322"
-    PHONE_NUMBER_TWO = "(225) 07 5795 0079"
+    PHONE_NUMBER = "(225) 07 4747 3627"
+    PHONE_NUMBER_TWO = "07 0685 0101"
     PHONE_NUMBER_THREE = "(225) 01 7121 0836"
     WHATSAPP_NUMBER = "+2250747473627"
 
