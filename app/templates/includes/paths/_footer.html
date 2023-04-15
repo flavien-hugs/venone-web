@@ -1,7 +1,7 @@
 <footer class="bg-dark pt-5">
     <div class="container">
-        <div class="row g-4 justify-content-between">
-            <div class="col-md-6 col-lg-4">
+        <div class="row g-2 justify-content-between">
+            <div class="col-lg-5">
                 <a class="me-0" href="/">
                     <img loading="lazy" class="light-mode-item mx-auto h-70px" src="{{ url_for('static', filename='img/logo/logo-light.png') }}" alt="logo-venone">
                 </a>
@@ -9,7 +9,7 @@
                 <p class="my-3 text-white">
                 {{ config.SITE_NAME }} est un logiciel de gestion locative et de vente de biens immobiliers.</p>
 
-                <h5 class="mb-0 text-white">Nous contacter</h5>
+                <h5 class="mb-0 text-white">Suivez-nous sur : </h5>
 
                 <ul class="list-inline mb-0 my-3">
                     <li class="list-inline-item">
@@ -19,32 +19,17 @@
                     </li>
 
                     <li class="list-inline-item">
-                        <a class="fs-5 bg-white rounded-circle p-1" href="#">
+                        <a target="_blank" class="fs-5 bg-white rounded-circle p-1" href="https://wa.me/{{ config.WHATSAPP_NUMBER }}">
                             <i class="fab fa-fw fa-whatsapp"></i>
-                        </a>
-                    </li>
-
-                    <li class="list-inline-item">
-                        <a class="fs-5 bg-white rounded-circle p-1" href="#">
-                            <i class="fab fa-fw  fa-instagram"></i>
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <div class="col-md-6 col-lg-7">
-                <div class="row g-4 g-lg-5">
-                    <div class="col-4 col-sm-4">
-                        <h5 class="mb-2 mb-2 mb-md-4 text-white">Fonctionnalités</h5>
-                        <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link" href="/paiement-loyers/">Paiement des loyers</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/statistiques-analyses/">Statistiques et Analyses</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/gestion-biens-immobiliers/">Gestion des biens immobiliers</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-4 col-sm-4">
-                        <h5 class="mb-2 mb-2 mb-md-4 text-white">{{ config.SITE_NAME }}</h5>
+            <div class="col-lg-7">
+                <div class="row g-3">
+                    <div class="col-6 col-sm-6">
+                        <h5 class="mb-2 mb-md-4 text-white">{{ config.SITE_NAME }}</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link pt-0" href="/faq/">FAQs</a></li>
                             <li class="nav-item"><a class="nav-link" href="/a-propos/">À Propos</a></li>
@@ -52,13 +37,15 @@
                         </ul>
                     </div>
 
-                    <div class="col-4 col-sm-4">
-                        <h5 class="mb-2 mb-2 mb-md-4 text-white">Contact</h5>
-                        <p class="mb-3">
-                            <span class="h6 text-white">{{ config.PHONE_NUMBER }}</span>
-                            <span class="d-block small text-white">(08:00 à 18:00 UTC)</span>
+                    <div class="col-6 col-sm-6">
+                        <h5 class="mb-2 mb-md-4 text-white">Contacts</h5>
+                        <p class="h6 text-white fw-light mb-3">
+                            <span>{{ config.PHONE_NUMBER }} / {{ config.PHONE_NUMBER_TWO }}</span>
+                            <span class="d-block pt-2">Heure d'ouverture: 08:00 à 18:00 UTC</span>
                         </p>
-                        <p class="mb-0">Email:<span class="h6 fw-light ms-2 text-white">{{ config.EMAIL_ADDRESS }}</span></p>
+                        <p class="mb-0 h6 fw-light text-white">
+                            Email: {{ config.EMAIL_ADDRESS }}
+                        </p>
 
                         <div class="row g-2 mt-2">
                             <div class="col-6 col-sm-4 col-md-3 col-lg-6">
@@ -77,7 +64,7 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="d-md-flex justify-content-between align-items-center pt-2 pb-4 text-center">
+                <div class="d-flex justify-content-between pt-2 pb-4 text-center">
                     <div class="text-primary-hover">
                         &copy;  <a href="/" class="text-reset">{{ moment().format('YYYY') }} {{ config.SITE_NAME }}</a>, filiale CGIC GROUP.
                     </div>
