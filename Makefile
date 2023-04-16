@@ -16,9 +16,6 @@ install: ## Install or update dependencies
 freeze: ## Pin current dependencies
 	pipenv requirements > requirements.txt
 
-test: ## Run the unit tests
-	$(MANAGE) flask test
-
 createdb: ## Create database
 	$(MANAGE) flask init_db
 
@@ -31,8 +28,8 @@ migrate: ## Generate an initial migration
 upgrade: ## Apply the upgrade to the database
 	$(MANAGE) flask db upgrade
 
-tests: ## Run tests
-	python -m unittest discover -s tests
+test: ## Run the unit tests
+	python3 -m unittest discover -s tests
 
 shell: ## Flask Shell Load
 	$(MANAGE) flask shell
