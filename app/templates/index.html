@@ -4,34 +4,22 @@
 	<section class="bg-primary bg-opacity-10">
 	    <div class="container">
 	        <div class="row g-4 g-sm-4 align-items-center py-3">
-	            <div class="col-lg-6 col-xl-5">
-	                <h1 class="h3 fw-bold text-primary">Gérez vos biens locatifs en toute tranquillité.</h1>
+	            <div class="col-lg-6 col-xl-5 position-relative z-index-9">
+	                <h1 class="h5 fw-bold text-primary">
+	                	Une solution simple &amp; efficace pour gérer vos biens locatifs et vos clients en toute tranquillité !
+	                </h1>
 
 	                <p class="mb-5">
-	                    Trouvez votre partenaire de confiance pour piloter votre activité de gestion de biens immobiliers avec notre logiciel complet de gestion locative et de vente de biens immobiliers et fonciers.
+	                    L’endroit idéal pour trouver la maison de vos rêves.
 	                </p>
 
-	                <div class="d-sm-flex justify-content-sm-between align-items-center">
-	                    <div class="d-flex align-items-center">
-	                        <h5 class="mb-0 me-2">4.5/5.0</h5>
-	                        <ul class="list-inline mb-1">
-	                            <li class="list-inline-item me-0 mb-0">
-	                                <i class="fas fa-star text-warning"></i>
-	                            </li>
-	                            <li class="list-inline-item me-0 mb-0">
-	                                <i class="fas fa-star text-warning"></i>
-	                            </li>
-	                            <li class="list-inline-item me-0 mb-0">
-	                                <i class="fas fa-star text-warning"></i>
-	                            </li>
-	                            <li class="list-inline-item me-0 mb-0">
-	                                <i class="fas fa-star text-warning"></i>
-	                            </li>
-	                            <li class="list-inline-item me-0 mb-0">
-	                                <i class="fas fa-star-half-alt text-warning"></i>
-	                            </li>
-	                        </ul>
-	                    </div>
+	                <div class="d-sm-flex align-items-center justify-content-center justify-content-lg-start">
+	                    <a target="_blank" href="{{ config.CRM_BUILDER }}/auth/owner/signup/" class="btn btn-sm btn-outline-primary me-2 mb-4 mb-sm-0">
+	                    Essayez gratuitement</a>
+
+	                    <a href="#contact-form" class="btn btn-sm btn-primary mb-4 mb-sm-0">
+	                    	Découvrir nos offres
+	                    </a>
 	                </div>
 	            </div>
 
@@ -42,45 +30,7 @@
 	    </div>
 	</section>
 
-	<section class="bg-white position-relative">
-	    <div class="container">
-	        <div class="row mb-4">
-	            <div class="col-sm-10 col-xl-6 text-center mx-auto">
-	                <h1 class="fs-2 text-primary fw-bold mb-2">Comment ça marche ?</h1>
-	                <p class="mb-0 fs-7">
-	                    Démultipliez votre productivité en gestion immobilière en optant pour la dématérialisation.
-	                    Fini le stress de la paperasse grâce à une solution automatisée pour gérer vos logements, et concentrez-vous sur l'essentiel.
-	                </p>
-	            </div>
-	        </div>
-
-	        <div class="row g-4 g-md-5">
-	            <div class="col-md-4 text-center">
-	                <img loading="lazy" src="{{ url_for('static', filename='img/element/create-account.svg') }}"  class="h-200px" alt="create-account">
-	                <h1 class="mt-3 fs-5">Créer votre compte</h1>
-	                <p class="text-truncate-2 mb-0">Créer votre compte en moins d'une minute</p>
-	            </div>
-
-	            <div class="col-md-4 text-center">
-	                <img loading="lazy" src="{{ url_for('static', filename='img/element/add-course.svg') }}" class="h-200px" alt="">
-	                <h1 class="mt-3 fs-5">Enregistrer vos entités</h1>
-	                <p class="text-truncate-2 mb-0">Commencer à lister vos biens locatifs.</p>
-	            </div>
-
-	            <div class="col-md-4 text-center">
-	                <img loading="lazy" src="{{ url_for('static', filename='img/element/earn-money.svg') }}" class="h-200px" alt="earn-money">
-	                <h1 class="mt-3 fs-5">Encaisser vos loyers</h1>
-	                <p class="text-truncate-2 mb-0">
-	                	Encaisser automatiquement vos loyers.
-	                </p>
-	            </div>
-	        </div>
-	    </div>
-	</section>
-
-	{% include "includes/paths/_price.html" %}
-
-	<section class="bg-light position-relative">
+	<section class="position-relative">
 	    <div class="container">
 	        <div class="row g-4 align-items-center justify-content-between">
 	            <div class="col-md-6 col-xl-6">
@@ -164,15 +114,56 @@
 	    </div>
 	</section>
 
+	{% include "includes/paths/_price.html" %}
+
 	{% include "includes/paths/_payment.html" %}
+
+	<section class="bg-light position-relative">
+	    <div class="container">
+	        <div class="row mb-4">
+	            <div class="col-sm-10 col-xl-6 text-center mx-auto">
+	                <h1 class="fs-2 text-primary fw-bold mb-2">Comment ça marche ?</h1>
+	                <p class="mb-0 fs-7">
+	                    Démultipliez votre productivité en gestion immobilière en optant pour la dématérialisation.
+	                    Fini le stress de la paperasse grâce à une solution automatisée pour gérer vos logements, et concentrez-vous sur l'essentiel.
+	                </p>
+	            </div>
+	        </div>
+
+	        <div class="row g-4 g-md-5">
+	            <div class="col-md-4 text-center">
+	                <img loading="lazy" src="{{ url_for('static', filename='img/element/create-account.svg') }}"  class="h-200px" alt="create-account">
+	                <h1 class="mt-3 fs-5">Créer votre compte</h1>
+	                <p class="text-truncate-2 mb-0">Créer votre compte en moins d'une minute</p>
+	            </div>
+
+	            <div class="col-md-4 text-center">
+	                <img loading="lazy" src="{{ url_for('static', filename='img/element/add-course.svg') }}" class="h-200px" alt="">
+	                <h1 class="mt-3 fs-5">Enregistrer vos entités</h1>
+	                <p class="text-truncate-2 mb-0">Commencer à lister vos biens locatifs.</p>
+	            </div>
+
+	            <div class="col-md-4 text-center">
+	                <img loading="lazy" src="{{ url_for('static', filename='img/element/earn-money.svg') }}" class="h-200px" alt="earn-money">
+	                <h1 class="mt-3 fs-5">Encaisser vos loyers</h1>
+	                <p class="text-truncate-2 mb-0">
+	                	Encaisser automatiquement vos loyers.
+	                </p>
+	            </div>
+	        </div>
+	    </div>
+	</section>
 
 	<section class="position-relative">
 	    <div class="container">
 	    	<div class="row mb-4">
 	            <div class="col-sm-10 col-xl-6 text-center mx-auto">
-	                <h1 class="fs-5 text-primary mb-0">
+	                <h1 class="fs-5 text-primary mb-4">
 	                	Simplifiez la gestion des vos biens immobiliers en vous inscrivant en 5 minutes.
 	                </h1>
+	                <p class="mb-5">
+	                	Une solution tout-en-un très simple d’utilisation développée pour les propriétaires et agences immobilières.
+	                </p>
 	            </div>
 	        </div>
 

@@ -41,9 +41,15 @@
                     </li>
                 </ul>
 
-                <div class="navbar-nav">
-                    <a href="#signup" class="btn btn-sm btn-outline-primary fw-bold my-sm-3 my-lg-0">
-                        S'inscrire
+                <div class="navbar-nav ms-2">
+                    <a target="_blank" href="{{ config.CRM_BUILDER }}/auth/login/" class="btn btn-sm btn-primary fw-bold my-sm-3 my-lg-0 text-base">
+                        Se connecter
+                    </a>
+                </div>
+
+                <div class="navbar-nav ms-2 d-none d-sm-block">
+                    <a target="_blank" href="{{ config.CRM_BUILDER }}/auth/owner/signup/" class="btn btn-sm btn-outline-primary fw-bold my-sm-3 my-lg-0 text-base">
+                        Créer votre compte
                     </a>
                 </div>
             </div>
