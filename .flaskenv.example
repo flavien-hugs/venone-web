@@ -1,0 +1,8 @@
+FLASK_CONFIG='dev'
+CRM_BASE_URL="https://g.venone.app"
+WEBSITE_URL="https://www.venone.app"
+SECRET_KEY=''
+API_URL='https://g.venone.app/api/available-houses/'
+
+# nginx port
+NGINX_PORT=80

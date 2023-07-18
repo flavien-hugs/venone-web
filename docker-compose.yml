@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  web.venone.io:
+    build: .
+    restart: always
+    command: gunicorn --workers 3 --bind 0.0.0.0:5000 -m 007 runserver:app
+    volumes:
+      - .:/venone
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./.flaskenv
+
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - ${NGINX_PORT}:80
+    depends_on:
+      - web.venone.io
