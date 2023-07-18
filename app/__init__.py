@@ -37,7 +37,6 @@ def create_app(config_name):
     app.jinja_env.globals.update(zip=zip)
 
     with app.app_context():
-
         from .main import main as main_blueprint
 
         app.register_blueprint(main_blueprint)
