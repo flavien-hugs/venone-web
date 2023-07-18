@@ -60,7 +60,6 @@ def page(path):
 @main.get("/sitemap/")
 @main.get("/sitemap.xml/")
 def sitemap():
-
     host_components = urlparse(request.host_url)
     host_base = host_components.scheme + "://" + host_components.netloc
 

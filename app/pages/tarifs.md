@@ -1,4 +1,4 @@
-title: Détail de l’offre tarifaire Venone 
+title: Détail de l’offre tarifaire Venone
 subtitle: Bénéficiez de plusieurs fonctionnalités avec la grille tarifaire de Venone
 
 <div class="col-lg-12">
