@@ -94,6 +94,6 @@ def create_app(config_name):
 
             app.logger.addHandler(file_handler)
             app.logger.setLevel(logging.INFO)
-            app.logger.info("running app")
+            app.logger.info("running venone app")
 
         return app
