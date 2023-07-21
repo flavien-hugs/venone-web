@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   web.venone.io:
+    container_name: venone_web_app
     build: .
     restart: always
     command: gunicorn --workers 3 --bind 0.0.0.0:5000 -m 007 runserver:app
@@ -12,7 +13,8 @@ services:
     env_file:
       - ./.flaskenv
 
-  nginx:
+  server.nginx.io:
+    container_name: venone_nginx_proxy
     build: ./nginx
     restart: always
     ports:
