@@ -1,0 +1,14 @@
+*.md
+.git
+.github
+*.sqlite3
+.gitignore
+readme.md
+LICENSE
+.vscode
+.idea
+.flake8
+.isort.cfg
+.gitattributes
+.editorconfig
+.pre-commit-config.yaml
