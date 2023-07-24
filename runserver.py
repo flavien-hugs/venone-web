@@ -1,5 +1,5 @@
 from app import create_app
-from app import db
+from app.exts import db
 from dotenv import dotenv_values
 from flask_migrate import Migrate
 
