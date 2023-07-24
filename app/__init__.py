@@ -1,24 +1,14 @@
 import logging
 import os
 from logging.handlers import RotatingFileHandler
-
-from config import config
 from flask import Flask
 from flask import render_template
-from flask_flatpages import FlatPages
-from flask_mail import Mail
-from flask_migrate import Migrate
-from flask_minify import Minify
-from flask_moment import Moment
-from flask_sqlalchemy import SQLAlchemy
 
+from app import exts
+from config import config
 
-mail = Mail()
-db = SQLAlchemy()
-moment = Moment()
-migrate = Migrate()
-pages = FlatPages()
-minify = Minify(html=True, js=True, cssless=True, bypass=["main.*"])
+from dotenv import dotenv_values
+env = dotenv_values(".flaskenv")
 
 
 def create_app(config_name):
@@ -26,13 +16,14 @@ def create_app(config_name):
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 
-    mail.init_app(app)
-    pages.init_app(app)
-    moment.init_app(app)
-    db.init_app(app)
-    migrate.init_app(app, db)
-    minify.init_app(app)
+    exts.mail.init_app(app)
+    exts.pages.init_app(app)
+    exts.moment.init_app(app)
+    exts.db.init_app(app)
+    exts.migrate.init_app(app, exts.db)
+    exts.minify.init_app(app)
 
+    app.config.from_object(env)
     app.url_map.strict_slashes = False
     app.jinja_env.globals.update(zip=zip)
 
