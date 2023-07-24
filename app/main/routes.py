@@ -1,17 +1,17 @@
-import logging
 import os
+import logging
 from urllib.parse import urlparse
 
-import httpx
-from app import pages
+from flask import request
+from flask import Response
 from flask import current_app
 from flask import make_response
 from flask import render_template
-from flask import request
-from flask import Response
 from flask import send_from_directory
 
+import httpx
 from . import main
+from app.exts import pages
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
