@@ -1,28 +1,44 @@
-FROM python:3.10
+# ── Build stage ────────────────────────────────────────────────────────────────
+FROM python:3.10-slim AS builder
 
-RUN echo "vm.overcommit_memory = 1" >> /etc/sysctl.conf
+WORKDIR /app
 
-RUN apt-get update && apt-get install -y sysfsutils
+# Variables d'environnement pip
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_DEFAULT_TIMEOUT=100
 
-WORKDIR /venone
+# Copier uniquement les fichiers de dépendances pour profiter du cache Docker
+COPY env/base.txt ./env/base.txt
 
-COPY ./env/local.txt /venone/
+# Installer les dépendances dans un virtualenv isolé
+RUN python -m venv /venv && \
+    /venv/bin/pip install --upgrade pip && \
+    /venv/bin/pip install -r env/base.txt
 
-ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=off \
-    PIP_DISABLE_PIP_VERSION_CHECK=on \
-    PIP_DEFAULT_TIMEOUT=100 \
-    VIRTUAL_ENV=/venv \
-    PATH=/venv/bin:$PATH
+# ── Runtime stage ───────────────────────────────────────────────────────────────
+FROM python:3.10-slim AS runtime
 
-RUN python -m venv $VIRTUAL_ENV && \
-    pip install --upgrade pip && \
-    pip install -r local.txt
+WORKDIR /app
 
-COPY . /venone
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH="/venv/bin:$PATH" \
+    VIRTUAL_ENV=/venv
 
-RUN chgrp -R 0 /venone && \
-    chmod -R g+rwX /venone
+# Copier uniquement le virtualenv depuis le builder (pas les outils de build)
+COPY --from=builder /venv /venv
 
-CMD ["python3", "runserver.py"]
+# Copier le code applicatif
+COPY . .
+
+# Least-privilege : permettre l'exécution par un utilisateur non-root (OpenShift compatible)
+RUN chgrp -R 0 /app && chmod -R g=u /app
+
+# Exposer le port applicatif
+EXPOSE 5000
+
+# Démarrer Gunicorn en production
+CMD ["gunicorn", "--workers", "3", "--bind", "0.0.0.0:5000", "--access-logfile", "-", "--error-logfile", "-", "runserver:app"]
