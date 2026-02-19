@@ -12,3 +12,8 @@ LICENSE
 .gitattributes
 .editorconfig
 .pre-commit-config.yaml
+compose.yml
+Dockerfile
+Makefile
+.env.example
+.env

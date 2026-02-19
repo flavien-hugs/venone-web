@@ -1,11 +1,11 @@
-from app import create_app
-from app.exts import db
-from dotenv import dotenv_values
+import os
+
 from flask_migrate import Migrate
 
-env = dotenv_values(".flaskenv")
+from app import create_app
+from app.exts import db
 
-app = create_app(env.get("FLASK_CONFIG"))
+app = create_app(os.environ.get("FLASK_CONFIG"))
 migrate = Migrate(app, db)
 
 

@@ -7,9 +7,6 @@ from flask import render_template
 from app import exts
 from config import config
 
-from dotenv import dotenv_values
-env = dotenv_values(".flaskenv")
-
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -23,7 +20,6 @@ def create_app(config_name):
     exts.migrate.init_app(app, exts.db)
     exts.minify.init_app(app)
 
-    app.config.from_object(env)
     app.url_map.strict_slashes = False
     app.jinja_env.globals.update(zip=zip)
 
