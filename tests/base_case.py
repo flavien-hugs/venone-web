@@ -1,10 +1,8 @@
 import sys
 import unittest
 
-from app import create_app
-from app import db
+from app.main import create_app
 from flask import current_app
-
 
 sys.path.append("..")
 
@@ -14,12 +12,9 @@ class BaseCase(unittest.TestCase):
         self.app = create_app("test")
         self.app_context = self.app.app_context()
         self.app_context.push()
-        db.create_all()
         self.client = self.app.test_client()
 
     def tearDown(self):
-        db.session.remove()
-        db.drop_all()
         self.app_context.pop()
 
     def test_app_exists(self):

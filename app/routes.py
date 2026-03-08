@@ -1,38 +1,42 @@
-import os
 import logging
+import os
 from urllib.parse import urlparse
 
-from flask import request
-from flask import Response
-from flask import current_app
-from flask import make_response
-from flask import render_template
-from flask import send_from_directory
-
 import httpx
-from . import main
-from app.exts import pages
+from flask import (
+    Blueprint,
+    current_app,
+    make_response,
+    render_template,
+    request,
+    Response,
+    send_from_directory,
+)
+
+from app.plugins import pages
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 
+main = Blueprint("main", __name__, template_folder="templates")
+
+
 @main.get("/")
 def home_page():
-    page_title = "Acceuil"
-    return render_template("index.html", page_title=page_title)
+    return render_template("index.html", page_title="Acceuil")
 
 
 @main.get("/contact/")
 def contact_page():
-    page_title = "Contatez-nous"
-    return render_template("page/contact.html", page_title=page_title)
+    return render_template("page/contact.html", page_title="Contatez-nous")
 
 
 @main.get("/proprietes-disponibles/")
 def houses_page():
-    page_title = "Nos propriétés disponible"
-    return render_template("page/house_list.html", page_title=page_title)
+    return render_template(
+        "page/house_list.html", page_title="Nos propriétés disponible"
+    )
 
 
 @main.route("/api/houses/")
@@ -90,11 +94,11 @@ def sitemap():
 
 @main.get("/robots.txt/")
 def noindex():
-    def Disallow(string):
-        return f"Disallow: {string}"
+    def disallow(name: str = "/contact/"):
+        return f"Disallow: {name}"
 
     r = Response(
-        "User-Agent: *\n{0}\n".format("\n".join([Disallow("/contact/")])),
+        "User-Agent: *\n{0}\n".format("\n".join([disallow("/contact/")])),
         status=200,
         mimetype="text/plain",
     )

@@ -41,4 +41,4 @@ RUN chgrp -R 0 /app && chmod -R g=u /app
 EXPOSE 5000
 
 # Démarrer Gunicorn en production
-CMD ["gunicorn", "--workers", "3", "--bind", "0.0.0.0:5000", "--access-logfile", "-", "--error-logfile", "-", "runserver:app"]
+CMD ["gunicorn", "--workers", "3", "--bind", "0.0.0.0:5000", "--access-logfile", "-", "--error-logfile", "-", "app.cli:app"]

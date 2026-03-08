@@ -22,18 +22,6 @@ pipenv-install: ## Install or update dependencies
 pip-install: ## Install packages with pip
 	pip install -r env/dev.txt
 
-createdb: ## Create database
-	$(MANAGE) flask init_db
-
-init: ## Init database
-	$(MANAGE) flask db init
-
-migrate: ## Generate an initial migration
-	$(MANAGE) flask db migrate -m 'Intial Migration'
-
-upgrade: ## Apply the upgrade to the database
-	$(MANAGE) flask db upgrade
-
 test: ## Run the unit tests
 	python3 -m unittest discover -s tests
 
@@ -46,7 +34,7 @@ kill-process: ## Kill process the server
 
 .PHONY: run
 run: ## Run
-	docker compose up --build -d
+	docker compose up -d --build
 
 .PHONY: restart
 restart:	## restart one/all containers
