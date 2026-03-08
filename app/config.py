@@ -21,8 +21,9 @@ class Config:
     FLATPAGES_EXTENSION = ".md"
     FLATPAGES_ROOT = "pages/"
     FLATPAGES_MARKDOWN_EXTENSIONS = ["codehilite"]
+    FLATPAGES_AUTO_RELOAD = True
+    FLATPAGES_EXTENSION_CONFIG = {"codehilite": {"css_class": "highlight"}}
 
-    SLOW_DB_QUERY_TIME = 0.5
     WEBSITE_BUILDER = os.environ.get("WEBSITE_BUILDER")
 
     API_URL = os.environ.get("API_URL")
@@ -35,23 +36,15 @@ class Config:
 
 class TestingConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
     DEVELOPMENT = True
     TEMPLATES_AUTO_RELOAD = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DEV_DATABASE_URL"
-    ) or "sqlite:///" + os.path.join(BASE_DIR, "dev.sqlite3")
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") or "sqlite:///" + os.path.join(
-        BASE_DIR, "prod.sqlite3"
-    )
-
     @classmethod
     def init_app(cls, app):
         Config.init_app(app)

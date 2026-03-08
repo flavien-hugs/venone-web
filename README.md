@@ -1,6 +1,7 @@
 # VENONE — Application de Gestion Locative et Immobilière
 
-**Venone** est une solution SaaS de gestion locative et immobilière ciblant les propriétaires et agences immobilières. Ce dépôt contient le **site vitrine** (landing page) de l'application.
+**Venone** est une solution SaaS de gestion locative et immobilière ciblant les propriétaires et agences immobilières.
+Ce dépôt contient le **site vitrine** (landing page) de l'application.
 
 ---
 
@@ -28,8 +29,6 @@
 | Moteur de templates | Jinja2 |
 | CSS / UI | Bootstrap 5 + Bootstrap Icons |
 | Pages de contenu | Flask-FlatPages (Markdown → HTML) |
-| Base de données | SQLAlchemy + Flask-Migrate |
-| Mail | Flask-Mail |
 | HTTP client | `httpx` |
 | Minification | Flask-Minify |
 | Conteneurisation | Docker + docker-compose + Nginx |
@@ -44,11 +43,11 @@
 ```
 venone-web/
 ├── app/
-│   ├── __init__.py        # App factory (create_app)
-│   ├── exts.py            # Initialisation des extensions Flask
-│   ├── main/
-│   │   ├── __init__.py    # Blueprint "main"
-│   │   └── routes.py      # Toutes les routes du site
+│   ├── plugins.py         # Initialisation des extensions Flask
+│   ├── cli.py             # Point d'entrée
+│   ├── config.py          # Configurations Dev / Prod / Test
+│   ├── routes.py          # Toutes les routes du site
+│   ├── main.py            # App factory (create_app)
 │   ├── pages/             # Contenu statique en Markdown (FlatPages)
 │   │   ├── a-propos.md
 │   │   ├── faq.md
@@ -62,12 +61,9 @@ venone-web/
 │   │   ├── includes/      # Composants réutilisables (partials)
 │   │   └── page/          # Pages spécifiques (contact, erreurs, biens…)
 │   └── static/            # Assets (images, CSS, JS)
-├── config.py              # Configurations Dev / Prod / Test
-├── runserver.py           # Point d'entrée
 ├── tests/                 # Tests unitaires
-├── nginx/                 # Configuration Nginx
 ├── Dockerfile
-├── docker-compose.yml
+├── compose.yml
 ├── Makefile
 └── Pipfile
 ```
@@ -122,8 +118,8 @@ cd venone-web
 ### 2. Copier et configurer les variables d'environnement
 
 ```bash
-cp .flaskenv.example .flaskenv
-# Éditer .flaskenv avec vos valeurs (SECRET_KEY, API_URL, CRM_BASE_URL…)
+cp .env.example .env
+# Éditer .env avec vos valeurs (SECRET_KEY, API_URL, CRM_BASE_URL…)
 ```
 
 ### 3. Installer les dépendances
